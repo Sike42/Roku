@@ -10,7 +10,7 @@ pipeline {
         }
     }
      stage('Three'){
-            steps {  echo ' Welcome  ' }
+            steps {  echo ' Welcome hello  ' }
         }
     }
 
