@@ -4,12 +4,10 @@ pipeline {
         stage('One'){
             steps {  echo 'Hi, this is sike ' }
         }
-    }
-    stage('Two'){
+       stage('Two'){
             steps {  input 'Do you want to proceed ?' }
         }
-    }
-    stage('Three'){
+       stage('Three'){
             when {
                         not {
                             branch "master"
@@ -18,7 +16,7 @@ pipeline {
             }
             steps {  echo ' Welcome  ' }
         }
-    stage('Four'){
+        stage('Four'){
             parallel {
                 stage('Unit Test') {
                         steps { echo "Running the unit test .... "}
@@ -36,10 +34,5 @@ pipeline {
                 }
             }
     }
-
-
     }
     }
-
-
-}
