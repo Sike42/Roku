@@ -5,11 +5,11 @@ pipeline {
             steps {  echo 'Hi, this is sike ' }
         }
     }
-     stage('Two'){
+    stage('Two'){
             steps {  input 'Do you want to proceed ?' }
         }
     }
-     stage('Three'){
+    stage('Three'){
             when {
                         not {
                             branch "master"
@@ -18,6 +18,27 @@ pipeline {
             }
             steps {  echo ' Welcome  ' }
         }
+    stage('Four'){
+            parallel {
+                stage('Unit Test') {
+                        steps { echo "Running the unit test .... "}
+                }
+                stage('Integration Test'){
+                                    agent {
+                                        docker {
+                                                reuseNode false
+                                                image 'ubuntu'
+                                        }
+                                        steps { 
+                                            echo 'Running the Integration test .... '
+                                        }
+                                    }
+                }
+            }
+    }
+
+
+    }
     }
 
 
