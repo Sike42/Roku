@@ -10,6 +10,12 @@ pipeline {
         }
     }
      stage('Three'){
+            when {
+                        not {
+                            branch "master"
+                        }
+
+            }
             steps {  echo ' Welcome  ' }
         }
     }
