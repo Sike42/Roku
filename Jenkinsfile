@@ -4,15 +4,11 @@ pipeline {
         stage('One'){
             steps {  echo 'Hi, this is sike ' }
         }
-    }
-     stage('Two'){
+        stage('Two'){
             steps {  input 'Do you want to proceed ?' }
         }
-    }
-     stage('Three'){
+        stage('Three'){
             steps {  echo ' Welcome hello  ' }
         }
     }
-
-
 }
